@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar__logo">
+          <i class="fa fa-users"></i>
+          <a class="white" href="../index.html">인천산업정보학교</a>
+        </div>
+    
+        <ul class="navbar__menu">
+            <li>
+                <div class="dropdown">
+                  <button class="dropbtn">원적교
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="">전화번호,홈페이지</a>
+                </div>
+              </div>
+              </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">분석1
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="">연도별 신입생수</a>
+              <a href="pages/study_ing.html">ing</a>
+              <a href="pages/book_complete.html">Book_Complete</a>
+            </div>
+          </div>
+          </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">홍보
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="marketing_sns.html">SNS</a>
+              <a href="pages/film_history_1945.html">1945</a>
+            </div>
+          </div>
+          </li>
+       </ul>
+    
+        <ul class="navbar__icons">
+          <li><i class="fa fa-youtube"></i></li>
+          <li><i class="fa fa-instagram"></i></li>
+        </ul>
+    </nav>
+    
+<p>스마트폰에서 전화번호를 터치하시면, 해당 학교에 바로 연결됩니다.</p>
+<input id="myInput" type="text" placeholder="검색어를 입력해주세요">
+<br><br>
+
+<table>
+  <thead>
+  <tr>
+    <th onclick="sortTable(0)">원적교 <i class="fa fa-sort"></i></th> 
+    <th onclick="sortTable(1)">전화번호 <i class="fa fa-sort"></i></th> 
+    <th onclick="sortTable(2)">19~22<br>년도<br>신입생수 <i class="fa fa-sort"></i></th> 
+    <th onclick="sortTable(3)">거리<br>(Km) <i class="fa fa-sort"></i></th> 
+  </tr>
+  </thead>
+  <tbody id = "myTable">
+        <tr>
+            <td>
+                가림고등학교</a></td>
+            <td><a href="tel:032-584-1755">032-584-1755</a></td>
+            <td>27</td>
+            <td><a href="https://www.google.com/maps/place/%EA%B0%80%EB%A6%BC%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.4928274,126.6790172,17z/data=!3m1!4b1!4m5!3m4!1s0x357b7ebbbffc7551:0x12a2a342d70a3d78!8m2!3d37.4928274!4d126.6812112?hl=ko"target="_blank">004.2</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EA%B0%80%EC%A0%95%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.513758,126.6774503,17z/data=!3m1!4b1!4m5!3m4!1s0x357b7e895fdefbb5:0xe569fcc28b080bb!8m2!3d37.513758!4d126.679639?hl=ko">
+                가정고등학교</a></td>
+            <td><a href="tel:032-579-9188">032-579-9188</a></td>
+            <td>13</td>
+            <td>005.8</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EA%B0%80%EC%A2%8C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.4858387,126.6787244,14.86z/data=!4m9!1m2!2m1!1z6rCA7KKM6rOg65Ox7ZWZ6rWQ!3m5!1s0x357b7eba0a9c713b:0x4e4d762031aa99af!8m2!3d37.4894556!4d126.680834!15sChLqsIDsoozqs6Drk7HtlZnqtZCSAQtoaWdoX3NjaG9vbA?hl=ko">
+                가좌고등학교</a></td>
+            <td><a href="tel:032-720-0690">032-720-0690</a></td>
+            <td>21</td>
+            <td>004.0</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EA%B0%95%ED%99%94%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.7476981,126.4717695,17z/data=!3m1!4b1!4m5!3m4!1s0x357c7afcaa5c25c5:0x6cf6e09b747056a1!8m2!3d37.7476981!4d126.4739582?hl=ko">
+                강화고등학교</a></td>
+            <td><a href="tel:032-724-2300">032-724-2300</a></td>
+            <td>01</td>
+            <td>034.1</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EA%B0%95%ED%99%94%EC%97%AC%EC%9E%90%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.7542252,126.4766855,17z/data=!3m1!4b1!4m5!3m4!1s0x357c7ae03b0311f9:0x49e0c67cfeca6074!8m2!3d37.7542252!4d126.4788742?hl=ko">
+                강화여자고등학교</a></td>
+            <td><a href="tel:032-933-3554">032-933-3554</a></td>
+            <td>01</td>
+            <td>034.7</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EA%B2%80%EB%8B%A8%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.6037747,126.6628104,17z/data=!3m1!4b1!4m5!3m4!1s0x357c810fa3e2c3cf:0x5bbb1bd3a7e56ae9!8m2!3d37.6037747!4d126.6649991?hl=ko">
+                검단고등학교</a></td>
+            <td><a href="tel:032-567-7831">032-567-7831</a></td>
+            <td>06</td>
+            <td>015.4</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EA%B3%84%EC%82%B0%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.5468106,126.7275279,17z/data=!3m1!4b1!4m5!3m4!1s0x357c8265142fc7fb:0xb9275297e17fc9eb!8m2!3d37.5468106!4d126.7297166?hl=ko">
+                계산고등학교</a></td>
+            <td><a href="tel:032-542-0687">032-542-0687</a></td>
+            <td>08</td>
+            <td>011.4</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EA%B3%84%EC%82%B0%EC%97%AC%EC%9E%90%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.5388673,126.7414391,18z/data=!3m1!4b1!4m5!3m4!1s0x357c82865991967d:0x5afd5b235196dce6!8m2!3d37.5388673!4d126.7423267?hl=ko">
+                계산여자고등학교</a></td>
+            <td><a href="tel:032-552-0273">032-552-0273</a></td>
+            <td>04</td>
+            <td>011.7</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EA%B3%84%EC%96%91%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.541895,126.7433068,19z/data=!3m1!4b1!4m5!3m4!1s0x357c8288c98bfb1b:0xdba8d83884a33528!8m2!3d37.541895!4d126.743854?hl=ko">
+                계양고등학교</a></td>
+            <td><a href="tel:032-552-0273">032-553-4903</a></td>
+            <td>03</td>
+            <td>011.9</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EA%B4%91%EC%84%B1%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.4672299,126.6394333,19z/data=!3m1!4b1!4m5!3m4!1s0x357b78efbe498b6b:0xa2420cd94aac8a0d!8m2!3d37.4672299!4d126.6399805?hl=ko">
+                광성고등학교</a></td>
+            <td><a href="tel:032-760-5200">032-760-5200</a></td>
+            <td>02</td>
+            <td>000.5</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EA%B5%90%EB%8F%99%EC%A4%91%ED%95%99%EA%B5%90/@37.7771356,126.2826353,18z/data=!3m1!4b1!4m5!3m4!1s0x357c735d0af81dc7:0x993482141143e969!8m2!3d37.7771356!4d126.2832539?hl=ko">
+                교동고등학교</a></td>
+            <td><a href="tel:032-932-4127">032-932-4127</a></td>
+            <td>02</td>
+            <td>046.4</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%8C%80%EC%9D%B8%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.5575028,126.6773247,18z/data=!3m1!4b1!4m5!3m4!1s0x357c81e1725a1235:0x347d95d0df4ffe02!8m2!3d37.5575028!4d126.6783879?hl=ko">
+                대인고등학교</a></td>
+            <td><a href="tel:032-562-6311">032-562-6311</a></td>
+            <td>17</td>
+            <td>010.1</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%8C%80%EC%B2%AD%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.8333798,124.6910265,17z/data=!3m1!4b1!4m5!3m4!1s0x3578904309d46841:0x21902c1a70675e7c!8m2!3d37.8333798!4d124.6932152?hl=ko">
+                대청고등학교</a></td>
+            <td><a href="tel:032-836-2206">032-836-2206</a></td>
+            <td>01</td>
+            <td>176.0</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%8D%95%EC%8B%A0%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.7449704,126.4717471,17z/data=!3m1!4b1!4m5!3m4!1s0x357c7afb9e61eb13:0x951d9296b04dda46!8m2!3d37.7449704!4d126.4735743?hl=ko">
+                덕신고등학교</a></td>
+            <td><a href="tel:032-933-2974">032-933-2974</a></td>
+            <td>00</td>
+            <td>033.9</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%8D%95%EC%A0%81%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.2254817,126.145721,18z/data=!4m9!1m2!2m1!1z7J247LKc6rSR7Jet7IucIOyYueynhOq1sCDrjZXsoIHrqbQg642V7KCB64Ko66GcIOuNleyggeqzoOuTse2Vmeq1kCBk!3m5!1s0x357bce9c4ae0c0cf:0x2fd64a0b6d09b371!8m2!3d37.2255277!4d126.1475987!15sCkXsnbjsspzqtJHsl63si5wg7Ji57KeE6rWwIOuNleyggeuptCDrjZXsoIHrgqjroZwg642V7KCB6rOg65Ox7ZWZ6rWQIGSSAQtoaWdoX3NjaG9vbA?hl=ko">
+                덕적고등학교</a></td>
+            <td><a href="tel:032-832-9303">032-832-9303</a></td>
+            <td>01</td>
+            <td>051.5</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%8F%84%EB%A6%BC%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.4208322,126.7503372,17z/data=!3m1!4b1!4m5!3m4!1s0x357b7a4840997bad:0x3ea1c977b5f1f999!8m2!3d37.4208322!4d126.7525259?hl=ko">
+                도림고등학교</a></td>
+            <td><a href="tel:032-622-2430">032-622-2430</a></td>
+            <td>32</td>
+            <td>008.6</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%8F%99%EC%82%B0%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.4735641,126.6467602,17z/data=!3m1!4b1!4m5!3m4!1s0x357b78de1bab1487:0x50bfc9b1b376df5a!8m2!3d37.4735641!4d126.6489489?hl=ko">
+                동산고등학교</a></td>
+            <td><a href="tel:032-763-7827">032-763-7827</a></td>
+            <td>24</td>
+            <td>000.6</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%8F%99%EC%9D%B8%EC%B2%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.4663038,126.7343001,18z/data=!3m1!4b1!4m5!3m4!1s0x357b7c7c44167ecb:0x4fce14ddf00e2268!8m2!3d37.4663038!4d126.7350411?hl=ko">
+                동인천고등학교</a></td>
+            <td><a href="tel:032-721-3600">032-721-3600</a></td>
+            <td>09</td>
+            <td>008.3</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%AA%85%EC%8B%A0%EC%97%AC%EC%9E%90%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/@37.5041207,126.693924,19z/data=!3m1!4b1!4m5!3m4!1s0x357b7e8293665acb:0x8479eb431362dd65!8m2!3d37.5041207!4d126.6944712?hl=ko">
+                명신여자고등학교</a></td>
+            <td><a href="tel:032-502-3088">032-502-3088</a></td>
+            <td>07</td>
+            <td>006.0</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%AC%B8%EC%9D%BC%EC%97%AC%EC%9E%90%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/data=!3m1!4b1!4m5!3m4!1s0x357b7b9ae2d287a9:0x772ccdc5159bf2!8m2!3d37.452664!4d126.7308449?hl=ko">
+                문일여자고등학교</a></td>
+            <td><a href="tel:032-465-3413">032-465-3413</a></td>
+            <td>02</td>
+            <td>008.2</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%B0%95%EB%AC%B8%EC%97%AC%EC%9E%90%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/data=!4m5!3m4!1s0x153211e05575aba1:0xb37aae440b966018!8m2!3d37.3827057!4d126.6660438?hl=ko">
+                박문여자고등학교</a></td>
+            <td><a href="tel:032-550-1940">032-550-1940</a></td>
+            <td>01</td>
+            <td>010.2</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%B0%B1%EB%A0%B9%EC%A4%91%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/data=!4m5!3m4!1s0x3578a2b17897982d:0x21575d0781beebee!8m2!3d37.963697!4d124.676047?hl=ko">
+                백령고등학교</a></td>
+            <td><a href="tel:032-836-0091">032-836-0091</a></td>
+            <td>00</td>
+            <td>182.0</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%B0%B1%EC%84%9D%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/data=!3m1!4b1!4m5!3m4!1s0x357c81961ef4c627:0xf515d4c9b17e62ba!8m2!3d37.5803467!4d126.6743336?hl=ko">
+                백석고등학교</a></td>
+            <td><a href="tel:032-567-7762">032-567-7762</a></td>
+            <td>06</td>
+            <td>013.0</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%B6%80%EA%B0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/data=!3m1!4b1!4m5!3m4!1s0x357b7c55f45e7d15:0x1ee356e15c2dcbad!8m2!3d37.4924331!4d126.7381975?hl=ko">
+                부개고등학교</a></td>
+            <td><a href="tel:032-722-5777">032-722-5777</a></td>
+            <td>04</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%B6%80%EA%B0%9C%EC%97%AC%EC%9E%90%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/data=!4m5!3m4!1s0x357b7d00f44033c3:0x36ab1a3772a57d22!8m2!3d37.497872!4d126.740439?hl=ko">
+                부개여자고등학교</a></td>
+            <td><a href="tel:032-510-6700">032-510-6700</a></td>
+            <td>04</td>
+            <td>009.3</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%B6%80%EA%B4%91%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/data=!3m1!4b1!4m5!3m4!1s0x357b7c18fd89c57b:0x8f42d75bc172cca9!8m2!3d37.4883444!4d126.7030888?hl=ko">
+                부광고등학교</a></td>
+            <td><a href="tel:032-500-9100">032-500-9100</a></td>
+            <td>09</td>
+            <td>005.8</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%B6%80%EA%B4%91%EC%97%AC%EC%9E%90%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/data=!3m1!4b1!4m5!3m4!1s0x357b7da963378205:0xb8d25f730917a858!8m2!3d37.5021989!4d126.7352001?hl=ko">
+                부광여자고등학교</a></td>
+            <td><a href="tel:032-526-3214">032-526-3214</a></td>
+            <td>06</td>
+            <td>009.0</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.google.com/maps/place/%EB%B6%80%ED%8F%89%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90/data=!3m1!4b1!4m5!3m4!1s0x357b7db284a1b8a5:0x2aa06be6dd4edfa9!8m2!3d37.5022465!4d126.7275792?hl=ko">
+                부평고등학교</a></td>
+            <td><a href="tel:032-526-3204">032-526-3204</a></td>
+            <td>10</td>
+            <td>008.3</td>
+        </tr>
+        <tr>
+            <td>부평여자고등학교</td>
+            <td><a href="tel:032-526-6432">032-526-6432</a></td>
+            <td>05</td>
+            <td>214</td>
+        </tr>
+        <tr>
+            <td>삼산고등학교</td>
+            <td><a href="tel:032-512-9514">032-512-9514</a></td>
+            <td>08</td>
+            <td>207</td>
+        </tr>
+        <tr>
+            <td>서도고등학교</td>
+            <td><a href="tel:032-932-7005">032-932-7005</a></td>
+            <td>00</td>
+            <td>000</td>
+        </tr>
+        <tr>
+            <td>서운고등학교</td>
+            <td><a href="tel:032-542-6662">032-542-6662</a></td>
+            <td>07</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>서인천고등학교</td>
+            <td><a href="tel:032-562-0012">032-562-0012</a></td>
+            <td>15</td>
+            <td>413</td>
+        </tr>
+        <tr>
+            <td>석정여자고등학교</td>
+            <td><a href="tel:032-720-7200">032-720-7200</a></td>
+            <td>13</td>
+            <td>244</td>
+        </tr>
+        <tr>
+            <td>선인고등학교</td>
+            <td><a href="tel:032-761-6124">032-761-6124</a></td>
+            <td>08</td>
+            <td>140</td>
+        </tr>
+        <tr>
+            <td>세일고등학교</td>
+            <td><a href="tel:032-515-0972">032-515-0972</a></td>
+            <td>06</td>
+            <td>222</td>
+        </tr>
+        <tr>
+            <td>송도고등학교</td>
+            <td><a href="tel:032-627-4080">032-627-4080</a></td>
+            <td>11</td>
+            <td>324</td>
+        </tr>
+        <tr>
+            <td>숭덕여자고등학교</td>
+            <td><a href="tel:032-462-5296">032-462-5296</a></td>
+            <td>06</td>
+            <td>216</td>
+        </tr>
+        <tr>
+            <td>신명여자고등학교</td>
+            <td><a href="tel:032-422-0331">032-422-0331</a></td>
+            <td>10</td>
+            <td>260</td>
+        </tr>
+        <tr>
+            <td>신송고등학교</td>
+            <td><a href="tel:032-851-1612">032-851-1612</a></td>
+            <td>03</td>
+            <td>303</td>
+        </tr>
+        <tr>
+            <td>안남고등학교</td>
+            <td><a href="tel:032-555-4280">032-555-4280</a></td>
+            <td>04</td>
+            <td>204</td>
+        </tr>
+        <tr>
+            <td>연수고등학교</td>
+            <td><a href="tel:032-817-0053">032-817-0053</a></td>
+            <td>02</td>
+            <td>306</td>
+        </tr>
+        <tr>
+            <td>연수여자고등학교</td>
+            <td><a href="tel:032-457-1234">032-457-1234</a></td>
+            <td>03</td>
+            <td>299</td>
+        </tr>
+        <tr>
+            <td>연평고등학교</td>
+            <td><a href="tel:032-627-1819">032-627-1819</a></td>
+            <td>00</td>
+            <td>007</td>
+        </tr>
+        <tr>
+            <td>옥련여자고등학교</td>
+            <td><a href="tel:032-650-3000">032-650-3000</a></td>
+            <td>14</td>
+            <td>286</td>
+        </tr>
+        <tr>
+            <td>인명여자고등학교</td>
+            <td><a href="tel:032-439-6083">032-439-6083</a></td>
+            <td>02</td>
+            <td>346</td>
+        </tr>
+        <tr>
+            <td>인성여자고등학교</td>
+            <td><a href="tel:032-762-8506">032-762-8506</a></td>
+            <td>06</td>
+            <td>197</td>
+        </tr>
+        <tr>
+            <td>인일여자고등학교</td>
+            <td><a href="tel:032-764-6681">032-764-6681</a></td>
+            <td>04</td>
+            <td>187</td>
+        </tr>
+        <tr>
+            <td>인제고등학교</td>
+            <td><a href="tel:032-422-6681">032-422-6681</a></td>
+            <td>00</td>
+            <td>246</td>
+        </tr>
+        <tr>
+            <td>인천고등학교</td>
+            <td><a href="tel:032-451-0559">032-451-0559</a></td>
+            <td>09</td>
+            <td>286</td>
+        </tr>
+        <tr>
+            <td>인천고잔고등학교</td>
+            <td><a href="tel:032-430-2400">032-430-2400</a></td>
+            <td>05</td>
+            <td>271</td>
+        </tr>
+        <tr>
+            <td>인천공항고등학교</td>
+            <td><a href="tel:032-746-2363">032-746-2363</a></td>
+            <td>08</td>
+            <td>271</td>
+        </tr>
+        <tr>
+            <td>인천국제고등학교</td>
+            <td><a href="tel:032-745-4500">032-745-4500</a></td>
+            <td>00</td>
+            <td>123</td>
+        </tr>
+        <tr>
+            <td>인천남고등학교</td>
+            <td><a href="tel:032-722-1500">032-722-1500</a></td>
+            <td>10</td>
+            <td>236</td>
+        </tr>
+        <tr>
+            <td>인천남동고등학교</td>
+            <td><a href="tel:032-421-2982">032-421-2982</a></td>
+            <td>08</td>
+            <td>267</td>
+        </tr>
+        <tr>
+            <td>인천논현고등학교</td>
+            <td><a href="tel:032-446-0634">032-446-0634</a></td>
+            <td>04</td>
+            <td>251</td>
+        </tr>
+        <tr>
+            <td>인천대건고등학교</td>
+            <td><a href="tel:032-822-0451">032-822-0451</a></td>
+            <td>01</td>
+            <td>276</td>
+        </tr>
+        <tr>
+            <td>인천마전고등학교</td>
+            <td><a href="tel:032-569-4162">032-569-4162</a></td>
+            <td>02</td>
+            <td>219</td>
+        </tr>
+        <tr>
+            <td>인천만수고등학교</td>
+            <td><a href="tel:032-473-0372">032-473-0372</a></td>
+            <td>03</td>
+            <td>263</td>
+        </tr>
+        <tr>
+            <td>인천부흥고등학교</td>
+            <td><a href="tel:032-505-9052">032-505-9052</a></td>
+            <td>14</td>
+            <td>194</td>
+        </tr>
+        <tr>
+            <td>인천산곡고등학교</td>
+            <td><a href="tel:032-508-8402">032-508-8402</a></td>
+            <td>02</td>
+            <td>196</td>
+        </tr>
+        <tr>
+            <td>인천상정고등학교</td>
+            <td><a href="tel:032-714-8666">032-714-8666</a></td>
+            <td>04</td>
+            <td>184</td>
+        </tr>
+        <tr>
+            <td>인천세원고등학교</td>
+            <td><a href="tel:032-554-2360">032-554-2360</a></td>
+            <td>06</td>
+            <td>199</td>
+        </tr>
+        <tr>
+            <td>인천송천고등학교</td>
+            <td><a href="tel:032-432-2263">032-432-2263</a></td>
+            <td>06</td>
+            <td>236</td>
+        </tr>
+        <tr>
+            <td>인천신현고등학교</td>
+            <td><a href="tel:032-571-0628">032-571-0628</a></td>
+            <td>04</td>
+            <td>263</td>
+        </tr>
+        <tr>
+            <td>인천여자고등학교</td>
+            <td><a href="tel:032-810-6395">032-810-6395</a></td>
+            <td>18</td>
+            <td>280</td>
+        </tr>
+        <tr>
+            <td>인천연송고등학교</td>
+            <td><a href="tel:032-712-2000">032-712-2000</a></td>
+            <td>03</td>
+            <td>240</td>
+        </tr>
+        <tr>
+            <td>인천영선고등학교</td>
+            <td><a href="tel:032-511-1635">032-511-1635</a></td>
+            <td>03</td>
+            <td>202</td>
+        </tr>
+        <tr>
+            <td>인천영종고등학교</td>
+            <td><a href="tel:032-745-4300">032-745-4300</a></td>
+            <td>05</td>
+            <td>370</td>
+        </tr>
+        <tr>
+            <td>인천영흥고등학교</td>
+            <td><a href="tel:032-886-0436">032-886-0436</a></td>
+            <td>00</td>
+            <td>032</td>
+        </tr>
+        <tr>
+            <td>인천예일고등학교</td>
+            <td><a href="tel:032-555-6307">032-555-6307</a></td>
+            <td>04</td>
+            <td>219</td>
+        </tr>
+        <tr>
+            <td>인천원당고등학교</td>
+            <td><a href="tel:032-569-0720">032-569-0720</a></td>
+            <td>09</td>
+            <td>297</td>
+        </tr>
+        <tr>
+            <td>인천청담고등학교</td>
+            <td><a href="tel:032-833-2014">032-833-2014</a></td>
+            <td>00</td>
+            <td>015</td>
+        </tr>
+        <tr>
+            <td>인천청라고등학교</td>
+            <td><a href="tel:032-568-9691">032-568-9691</a></td>
+            <td>19</td>
+            <td>303</td>
+        </tr>
+        <tr>
+            <td>인천초은고등학교</td>
+            <td><a href="tel:032-562-3002">032-562-3002</a></td>
+            <td>08</td>
+            <td>301</td>
+        </tr>
+        <tr>
+            <td>인천포스코고등학교</td>
+            <td><a href="tel:032-850-8600">032-850-8600</a></td>
+            <td>00</td>
+            <td>218</td>
+        </tr>
+        <tr>
+            <td>인천하늘고등학교</td>
+            <td><a href="tel:032-745-0400">032-745-0400</a></td>
+            <td>00</td>
+            <td>224</td>
+        </tr>
+        <tr>
+            <td>인천한누리학교</td>
+            <td><a href="tel:032-627-2250">032-627-2250</a></td>
+            <td>00</td>
+            <td>002</td>
+        </tr>
+        <tr>
+            <td>인천해밀학교</td>
+            <td><a href="tel:032-432-7155">032-432-7155</a></td>
+            <td>00</td>
+            <td>012</td>
+        </tr>
+        <tr>
+            <td>인천해송고등학교</td>
+            <td><a href="tel:032-831-0321">032-831-0321</a></td>
+            <td>11</td>
+            <td>296</td>
+        </tr>
+        <tr>
+            <td>인천해원고등학교</td>
+            <td><a href="tel:032-590-7600">032-590-7600</a></td>
+            <td>05</td>
+            <td>267</td>
+        </tr>
+        <tr>
+            <td>인천효성고등학교</td>
+            <td><a href="tel:032-556-8181">032-556-8181</a></td>
+            <td>08</td>
+            <td>214</td>
+        </tr>
+        <tr>
+            <td>인하대학<br>사범대학<br>부속고등학교</td>
+            <td><a href="tel:032-870-1000">032-870-1000</a></td>
+            <td>14</td>
+            <td>233</td>
+        </tr>
+        <tr>
+            <td>인항고등학교</td>
+            <td><a href="tel:032-885-3302">032-885-3302</a></td>
+            <td>07</td>
+            <td>196</td>
+        </tr>
+        <tr>
+            <td>인화여자고등학교</td>
+            <td><a href="tel:032-765-0621">032-765-0621</a></td>
+            <td>10</td>
+            <td>193</td>
+        </tr>
+        <tr>
+            <td>작전고등학교</td>
+            <td><a href="tel:032-555-1595">032-555-1595</a></td>
+            <td>04</td>
+            <td>209</td>
+        </tr>
+        <tr>
+            <td>작전여자고등학교</td>
+            <td><a href="tel:032-555-6217">032-555-6217</a></td>
+            <td>01</td>
+            <td>206</td>
+        </tr>
+        <tr>
+            <td>제물포고등학교</td>
+            <td><a href="tel:032-770-4750">032-770-4750</a></td>
+            <td>17</td>
+            <td>134</td>
+        </tr>
+        <tr>
+            <td>제일고등학교</td>
+            <td><a href="tel:032-514-6161">032-514-6161</a></td>
+            <td>01</td>
+            <td>169</td>
+        </tr>
+        <tr>
+            <td>학익고등학교</td>
+            <td><a href="tel:032-868-4143">032-868-4143</a></td>
+            <td>18</td>
+            <td>166</td>
+        </tr>
+        <tr>
+            <td>학익여자고등학교</td>
+            <td><a href="tel:032-712-5600">032-712-5600</a></td>
+            <td>04</td>
+            <td>294</td>
+        </tr>
+    </tbody>
+  </table>
+
+  <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    
+    function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("myTable");
+      switching = true;
+      dir = "asc"; 
+      while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 0; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              shouldSwitch= true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          switchcount ++;      
+        } else {
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+    </script>
+
+</body>
+</html>
