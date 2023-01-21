@@ -92,7 +92,7 @@ function drawVisualization() {
         ['2022', '계양고등학교', 2],
     ]);
 
-    var countryPicker = new google.visualization.ControlWrapper({
+    var yearPicker = new google.visualization.ControlWrapper({
         'controlType': 'CategoryFilter',
         'containerId': 'control1',
         'options': {
@@ -138,7 +138,7 @@ function drawVisualization() {
     });
     
     var dash = new google.visualization.Dashboard(document.getElementById('dashboard'));
-    dash.bind(countryPicker, [barChart, pieChartA]);
+    dash.bind(yearPicker, [barChart, pieChartA]);
     dash.draw(data);
 }
 

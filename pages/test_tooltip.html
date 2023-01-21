@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@1&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  
+</head>
+  
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__logo">
+      <i class="fa fa-users"></i>
+      <a class="white" href="../index.html">인천산업정보학교</a>
+    </div>
+
+    <ul class="navbar__menu">
+        <li>
+            <div class="dropdown">
+              <button class="dropbtn">원적교
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="phonenumber.html">전화번호,홈페이지</a>
+            </div>
+          </div>
+          </li>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn">분석1
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="">연도별 신입생수</a>
+          <a href="pages/study_ing.html">ing</a>
+          <a href="pages/book_complete.html">Book_Complete</a>
+        </div>
+      </div>
+      </li>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn">홍보
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="marketing_sns.html">SNS</a>
+          <a href="pages/film_history_1945.html">1945</a>
+        </div>
+      </div>
+      </li>
+   </ul>
+
+    <ul class="navbar__icons">
+      <li><i class="fa fa-youtube"></i></li>
+      <li><i class="fa fa-instagram"></i></li>
+    </ul>
+</nav>
+
+<div id="control1"></div>
+<div id="control2"></div>
+<div id="chart1" style="width: 100%; height: 30%;"></div>
+<div id="chart2" style="width: 100%; height: 100%;"></div>
+
+<h1>2023학년도- 거리(기준:인천산업정보학교):전체</h1>
+<div id="tooltip_action" style="width: 100%; height: 100%;"></div>
+<h1>2023학년도- 거리(기준:인천산업정보학교):16km이하</h1>
+<div id="tooltip_action2" style="width: 100%; height: 100%;"></div>
+
+<script>
+    google.load('visualization', '1.1', {packages: ['controls', 'corechart']});
+
+function drawVisualization() {
+    var data = google.visualization.arrayToDataTable([
+        ['학년도', '거리별', '원적교', 'km', '신입생수',{type: 'string', role: 'tooltip'}],
+        ['2023', '.전체학교', '가림고등학교', 4.2, 5,'가림고등학교, 5명, 4.2km'],
+ 
+
+    ]);
+
+
+    var yearPicker = new google.visualization.ControlWrapper({
+        'controlType': 'CategoryFilter',
+        'containerId': 'control1',
+        'options': {
+            'filterColumnLabel': '학년도',
+            'ui': {
+                'labelStacking': 'vertical',
+                'allowTyping': false,
+                'allowMultiple': false,
+                'allowNone': false
+            }
+        },
+            '학년도': {
+            selectedValues: ['2023']
+        }
+    });
+
+    var distancePicker = new google.visualization.ControlWrapper({
+        'controlType': 'CategoryFilter',
+        'containerId': 'control2',
+        'options': {
+            'filterColumnLabel': '거리별',
+            'ui': {
+                'labelStacking': 'vertical',
+                'allowTyping': false,
+                'allowMultiple': false,
+                'allowNone': false
+            }
+        },
+            '거리별': {
+            selectedValues: ['전체']
+        }
+    });
+    
+    
+    var scatterChart = new google.visualization.ChartWrapper({
+        'chartType': 'ScatterChart',
+        'containerId': 'chart1',
+        'options': {
+        tooltip: {
+        isHtml: true,
+        }
+        },
+        'view': {
+            'columns': [3, 4, 5]
+        }
+    });
+
+    var dash = new google.visualization.Dashboard(document.getElementById('dashboard'));
+    dash.bind(yearPicker, distancePicker);
+    dash.bind(distancePicker, [scatterChart]);
+    dash.draw(data);
+}
+
+google.setOnLoadCallback(drawVisualization);
+</script>
+
+<script>
+    google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn('number', '거리');
+    dataTable.addColumn('number', '신입생수');
+    // A column for custom tooltip content
+    dataTable.addColumn({type: 'string', role: 'tooltip'});
+    dataTable.addRows([
+    [4.2, 5, '가림고등학교(4.2Km): 5명'],
+    [5.8, 1, '가정고등학교, 1명, 5.8Km'],
+    [4.0, 0, '가좌고등학교'],
+    [4.0, 9, '가좌고등학교'],
+    [15.4, 2, '검단고등학교'],
+    [11.4, 2, '계산고등학교'],
+    [11.7, 0, '계산여자고등학교'],
+    [11.9, 0, '계양고등학교'],
+    ]);
+
+    var options = { legend: 'none' };
+    var chart = new google.visualization.ScatterChart(document.getElementById('tooltip_action2'));
+    chart.draw(dataTable, options);
+  }
+</script>
+
+<script>
+        google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var dataTable = new google.visualization.DataTable();
+        dataTable.addColumn('number', '거리');
+        dataTable.addColumn('number', '신입생수');
+        // A column for custom tooltip content
+        dataTable.addColumn({type: 'string', role: 'tooltip'});
+        dataTable.addRows([
+        [4.2, 5, '가림고등학교(4.2Km): 5명'],
+        [5.8, 1, '가정고등학교, 1명, 5.8Km'],
+        [4.0, 0, '가좌고등학교'],
+        [4.0, 9, '가좌고등학교'],
+        [34.1, 4, '강화고등학교'],
+        [34.7, 0, '강화여자고등학교'],
+        [15.4, 2, '검단고등학교'],
+        [11.4, 2, '계산고등학교'],
+        [11.7, 0, '계산여자고등학교'],
+        [11.9, 0, '계양고등학교'],
+        ]);
+
+        var options = { legend: 'none' };
+        var chart = new google.visualization.ScatterChart(document.getElementById('tooltip_action'));
+        chart.draw(dataTable, options);
+      }
+</script>
+             
+ </body>
+  </html>
+

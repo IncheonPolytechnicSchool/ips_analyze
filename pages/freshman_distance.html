@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@1&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  
+</head>
+  
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__logo">
+      <i class="fa fa-users"></i>
+      <a class="white" href="../index.html">인천산업정보학교</a>
+    </div>
+
+    <ul class="navbar__menu">
+        <li>
+            <div class="dropdown">
+              <button class="dropbtn">원적교
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="phonenumber.html">전화번호,홈페이지</a>
+            </div>
+          </div>
+          </li>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn">분석1
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="">연도별 신입생수</a>
+          <a href="pages/study_ing.html">ing</a>
+          <a href="pages/book_complete.html">Book_Complete</a>
+        </div>
+      </div>
+      </li>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn">홍보
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="marketing_sns.html">SNS</a>
+          <a href="pages/film_history_1945.html">1945</a>
+        </div>
+      </div>
+      </li>
+   </ul>
+
+    <ul class="navbar__icons">
+      <li><i class="fa fa-youtube"></i></li>
+      <li><i class="fa fa-instagram"></i></li>
+    </ul>
+</nav>
+
+<div id="control1"></div>
+<div id="control2"></div>
+<div id="chart1" style="width: 100%; height: 500px;"></div>
+<div id="chart2" style="width: 100%; height: 100%;"></div>
+
+<script>
+    google.load('visualization', '1.1', {packages: ['controls']});
+
+function drawVisualization() {
+    var data = google.visualization.arrayToDataTable([
+        ['학년도', '거리별', '원적교', 'km', '신입생수',{type: 'string', role: 'tooltip'}],
+        ['.2019~2023', '.전체학교', '가림고등학교', 4.2, 32, '가림고등학교(4.2km): 32명'],
+        ['.2019~2023', '16Km이하', '가림고등학교', 4.2, 32, '가림고등학교(4.2km): 32명'],
+        ['2023', '.전체학교', '가림고등학교', 4.2, 5, '가림고등학교(4.2km): 5명'],
+        ['2023', '16km이하', '가림고등학교', 4.2, 5, '가림고등학교(4.2km): 5명'],
+        ['2022', '.전체학교', '가림고등학교', 4.2, 5, '가림고등학교(4.2km): 5명'],
+        ['2022', '16km이하', '가림고등학교', 4.2, 5, '가림고등학교(4.2km): 5명'],
+        ['2021', '.전체학교', '가림고등학교', 4.2, 1, '가림고등학교(4.2km): 1명'],
+        ['2021', '16km이하', '가림고등학교', 4.2, 1, '가림고등학교(4.2km): 1명'],
+        ['2020', '.전체학교', '가림고등학교', 4.2, 1, '가림고등학교(4.2km): 13명'],
+        ['2020', '16km이하', '가림고등학교', 4.2, 1, '가림고등학교(4.2km): 13명'],
+        ['2019', '.전체학교', '가림고등학교', 4.2, 1, '가림고등학교(4.2km): 8명'],
+        ['2019', '16km이하', '가림고등학교', 4.2, 1, '가림고등학교(4.2km): 8명'],
+        ['.2019~2023', '.전체학교', '가정고등학교', 5.8, 14, '가정고등학교(5.8km): 14명'],
+        ['.2019~2023', '16Km이하', '가정고등학교', 5.8, 14, '가정고등학교(5.8km): 14명'],
+        ['2023', '.전체학교', '가정고등학교', 5.8, 1, '가정고등학교(5.8km): 1명'],
+        ['2023', '16km이하', '가정고등학교', 5.8, 1, '가정고등학교(5.8km): 1명'],
+        ['2022', '.전체학교', '가정고등학교', 5.8, 1, '가정고등학교(5.8km): 1명'],
+        ['2022', '16km이하', '가정고등학교', 5.8, 1, '가정고등학교(5.8km): 1명'],
+        ['2021', '.전체학교', '가정고등학교', 5.8, 1, '가정고등학교(5.8km): 1명'],
+        ['2021', '16km이하', '가정고등학교', 5.8, 1, '가정고등학교(5.8km): 1명'],
+        ['2020', '.전체학교', '가정고등학교', 5.8, 3, '가정고등학교(5.8km): 3명'],
+        ['2020', '16km이하', '가정고등학교', 5.8, 3, '가정고등학교(5.8km): 3명'],
+        ['2019', '.전체학교', '가정고등학교', 5.8, 8, '가정고등학교(5.8km): 8명'],
+        ['2019', '16km이하', '가정고등학교', 5.8, 8, '가정고등학교(5.8km): 8명'],
+        ['.2019~2023', '.전체학교', '가좌고등학교', 4.0, 21, '가좌고등학교(4.0Km): 21명'],
+        ['.2019~2023', '16Km이하', '가좌고등학교', 4.0, 21, '가좌고등학교(4.0Km): 21명'],
+        ['2023', '.전체학교', '가좌고등학교', 4.0, 0, '가좌고등학교(4.0Km): 0명'],
+        ['2023', '16km이하', '가좌고등학교', 4.0, 0, '가좌고등학교(4.0Km): 0명'],
+        ['2022', '.전체학교', '가좌고등학교', 4.0, 9, '가좌고등학교(4.0Km): 9명'],
+        ['2022', '16km이하', '가좌고등학교', 4.0, 9, '가좌고등학교(4.0Km): 9명'],
+        ['2021', '.전체학교', '가좌고등학교', 4.0, 4, '가좌고등학교(4.0Km): 4명'],
+        ['2021', '16km이하', '가좌고등학교', 4.0, 4, '가좌고등학교(4.0Km): 4명'],
+        ['2020', '.전체학교', '가좌고등학교', 4.0, 5, '가좌고등학교(4.0Km): 5명'],
+        ['2020', '16km이하', '가좌고등학교', 4.0, 5, '가좌고등학교(4.0Km): 5명'],
+        ['2019', '.전체학교', '가좌고등학교', 4.0, 3, '가좌고등학교(4.0Km): 3명'],
+        ['2019', '16km이하', '가좌고등학교', 4.0, 3, '가좌고등학교(4.0Km): 3명'],
+        ['.2019~2023', '.전체학교', '강화고등학교', 34.1, 5, '가좌고등학교(34.1Km): 5명'],
+        ['.2019~2023', '16km이상', '강화고등학교', 34.1, 5, '강화고등학교(34.1Km): 5명'],
+        ['2023', '.전체학교', '강화고등학교', 34.1, 4, '가좌고등학교(34.1Km): 4명'],
+        ['2023', '16km이상', '강화고등학교', 34.1, 4, '강화고등학교(34.1Km): 4명'],
+        ['2022', '.전체학교', '강화고등학교', 34.1, 0, '강화고등학교(34.1Km): 0명'],
+        ['2022', '16km이상', '강화고등학교', 34.1, 0, '강화고등학교(34.1Km): 0명'],
+        ['2021', '.전체학교', '강화고등학교', 34.1, 0, '강화고등학교(34.1Km): 0명'],
+        ['2021', '16km이상', '강화고등학교', 34.1, 0, '강화고등학교(34.1Km): 0명'],
+        ['2023', '16km이상', '강화여자고등학교', 34.7, 0, '강화여자고등학교(34.7Km): 0명'],
+        ['2022', '16km이상', '강화여자고등학교', 34.7, 1, '강화여자고등학교(34.7Km): 1명'],
+        ['2023', '16km이하', '검단고등학교', 15.4, 2, '검단고등학교(15.4Km): 2명'],
+        ['2022', '16km이하', '검단고등학교', 15.4, 2, '검단고등학교(15.4Km): 2명'],
+        ['2023', '16km이하', '계산고등학교', 11.4, 2, '계산고등학교(11.4Km): 2명'],
+        ['2022', '16km이하', '계산고등학교', 11.4, 1, '계산고등학교(11.4Km): 1명'],
+        ['2023', '16km이하', '계산여자고등학교', 11.7, 0, '계산여자고등학교(11.7Km): 0명'],
+        ['2022', '16km이하', '계산여자고등학교', 11.7, 0, '계산여자고등학교(11.7Km): 0명'],
+        ['2023', '16km이하', '계양고등학교', 11.9, 0, '계양고등학교(11.9Km): 0명'],
+        ['2022', '16km이하', '계양고등학교', 11.9, 2, '계양고등학교(11.9Km): 2명'],
+        ['2023', '.전체학교', '백령고등학교', 182, 0, '백령고등학교(182Km): 0명'],
+        ['2023', '16km이상', '백령고등학교', 182, 0, '백령고등학교(182Km): 0명'],
+        ['2022', '.전체학교', '백령고등학교', 182, 0, '백령고등학교(182Km): 0명'],
+        ['2022', '16km이상', '백령고등학교', 182, 0, '백령고등학교(182Km): 0명'],
+        ['2021', '.전체학교', '백령고등학교', 182, 0, '백령고등학교(182Km): 0명'],
+        ['2021', '16km이상', '백령고등학교', 182, 0, '백령고등학교(182Km): 0명'],
+        ['2020', '.전체학교', '백령고등학교', 182, 0, '백령고등학교(182Km): 0명'],
+        ['2020', '16km이상', '백령고등학교', 182, 0, '백령고등학교(182Km): 0명'],
+        ['2019', '.전체학교', '백령고등학교', 182, 0, '백령고등학교(182Km): 0명'],
+        ['2019', '16km이상', '백령고등학교', 182, 0, '백령고등학교(182Km): 0명'],
+
+    ]);
+
+
+    var yearPicker = new google.visualization.ControlWrapper({
+        'controlType': 'CategoryFilter',
+        'containerId': 'control1',
+        'options': {
+            'filterColumnLabel': '학년도',
+            'ui': {
+                'labelStacking': 'vertical',
+                'allowTyping': false,
+                'allowMultiple': false,
+                'allowNone': false
+            }
+        },
+            '학년도': {
+            selectedValues: ['2019~2023']
+        }
+    });
+
+    var distancePicker = new google.visualization.ControlWrapper({
+        'controlType': 'CategoryFilter',
+        'containerId': 'control2',
+        'options': {
+            'filterColumnLabel': '거리별',
+            'ui': {
+                'labelStacking': 'vertical',
+                'allowTyping': false,
+                'allowMultiple': false,
+                'allowNone': false
+            }
+        },
+            '거리별': {
+            selectedValues: ['전체']
+        }
+    });
+    
+    
+    var scatterChart = new google.visualization.ChartWrapper({
+        'chartType': 'ScatterChart',
+        'containerId': 'chart1',
+    'options': {
+        tooltip: { isHtml: true }, 
+        },
+        'view': {
+            'columns': [3, 4, 5]
+        }
+    });
+    
+    var dash = new google.visualization.Dashboard(document.getElementById('dashboard'));
+    dash.bind(yearPicker, distancePicker);
+    dash.bind(distancePicker, [scatterChart]);
+    dash.draw(data);
+}
+
+google.setOnLoadCallback(drawVisualization);
+</script>
+             
+ </body>
+  </html>
+
