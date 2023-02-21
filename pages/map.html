@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@1&display=swap" rel="stylesheet">
+    <style>
+        input[type=text], select {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+          width: 100%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+        
+        </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar__logo">
+          <i class="fa fa-users"></i>
+          <a class="white" href="../index.html">인천산업정보학교</a>
+        </div>
+    
+        <ul class="navbar__menu">
+            <li>
+                <div class="dropdown">
+                  <button class="dropbtn">원적교
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="">전화번호,홈페이지</a>
+                </div>
+              </div>
+              </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">분석1
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="freshman_1.html">연도별 신입생수</a>
+              <a href="pages/study_ing.html">ing</a>
+              <a href="pages/book_complete.html">Book_Complete</a>
+            </div>
+          </div>
+          </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">홍보
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="marketing_sns.html">SNS</a>
+              <a href="pages/film_history_1945.html">1945</a>
+            </div>
+          </div>
+          </li>
+       </ul>
+    
+        <ul class="navbar__icons">
+          <li><i class="fa fa-youtube"></i></li>
+          <li><i class="fa fa-instagram"></i></li>
+        </ul>
+    </nav>
+    
+    <iframe src="https://www.google.com/maps/d/embed?mid=1VMihmEtCK-aVCaHii8BWmdwSXx2Nzds&ehbc=2E312F" width="100%" height="500"></iframe>
+
+
+
+  <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    
+    function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("myTable");
+      switching = true;
+      dir = "asc"; 
+      while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 0; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              shouldSwitch= true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          switchcount ++;      
+        } else {
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+    </script>
+
+</body>
+</html>
